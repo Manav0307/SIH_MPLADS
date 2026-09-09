@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>MPLADS Anomaly Intelligence</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"error":"#ffb4ab","primary-fixed-dim":"#adc6ff","on-error":"#690005","tertiary-container":"#00a74b","secondary-fixed":"#ffdad7","inverse-primary":"#005ac2","tertiary":"#4ae176","on-tertiary-fixed-variant":"#005321","on-tertiary-fixed":"#002109","outline":"#8c909f","inverse-surface":"#dfe2f3","secondary":"#ffb3ad","on-surface-variant":"#c2c6d6","surface-tint":"#adc6ff","on-surface":"#dfe2f3","on-secondary":"#68000a","on-secondary-container":"#ffaea8","secondary-fixed-dim":"#ffb3ad","primary-fixed":"#d8e2ff","surface-bright":"#353946","on-primary-fixed-variant":"#004395","primary":"#adc6ff","tertiary-fixed":"#6bff8f","on-primary-fixed":"#001a42","surface-container-lowest":"#0a0e1a","surface-container-low":"#171b28","surface-container-high":"#262a37","inverse-on-surface":"#2c303d","tertiary-fixed-dim":"#4ae176","on-tertiary-container":"#003111","on-secondary-fixed":"#410004","on-background":"#dfe2f3","surface-container-highest":"#313442","surface-variant":"#313442","primary-container":"#4d8eff","surface":"#0f131f","on-error-container":"#ffdad6","surface-container":"#1b1f2c","on-secondary-fixed-variant":"#930013","on-primary":"#002e6a","background":"#0f131f","outline-variant":"#424754","on-primary-container":"#00285d","error-container":"#93000a","surface-dim":"#0f131f","on-tertiary":"#003915","secondary-container":"#a40217"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"panel-padding-standard":"0.75rem","grid-margin-desktop":"1rem","space-xl":"1rem","grid-margin-mobile":"0.5rem","space-md":"0.5rem","space-2xs":"0.125rem","space-sm":"0.375rem","panel-padding-relaxed":"1rem","space-xs":"0.25rem","space-lg":"0.75rem","control-height-standard":"2rem","row-height-condensed":"1.75rem","grid-gutter-desktop":"0.75rem","panel-padding-condensed":"0.5rem","row-height-standard":"2.25rem","control-height-compact":"1.75rem","grid-gutter-mobile":"0.5rem"},"fontFamily":{"body-dense":["Inter"],"table-header":["Inter"],"badge-status":["JetBrains Mono"],"metric-headline":["JetBrains Mono"],"display-command":["Inter"],"label-code":["JetBrains Mono"],"headline-panel-mobile":["Inter"],"headline-panel":["Inter"],"body-default":["Inter"],"body-dense-bold":["Inter"],"metric-subtext":["JetBrains Mono"]},"fontSize":{"body-dense":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"400"}],"table-header":["11px",{"lineHeight":"14px","letterSpacing":"0.05em","fontWeight":"600"}],"badge-status":["10px",{"lineHeight":"12px","letterSpacing":"0.06em","fontWeight":"700"}],"metric-headline":["22px",{"lineHeight":"26px","letterSpacing":"-0.03em","fontWeight":"700"}],"display-command":["28px",{"lineHeight":"34px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-code":["11px",{"lineHeight":"14px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-panel-mobile":["15px",{"lineHeight":"20px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-panel":["16px",{"lineHeight":"22px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-default":["13px",{"lineHeight":"18px","letterSpacing":"0em","fontWeight":"400"}],"body-dense-bold":["12px",{"lineHeight":"16px","letterSpacing":"0em","fontWeight":"600"}],"metric-subtext":["14px",{"lineHeight":"18px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface-container-lowest font-body-default text-body-default text-on-surface antialiased select-none"><aside class="fixed left-0 top-0 h-screen w-[260px] bg-surface-container-low border-r border-outline-variant/30 z-50 flex flex-col justify-between overflow-hidden"><div class="flex flex-col flex-1 min-h-0"><div class="h-14 px-space-lg flex items-center justify-between border-b border-outline-variant/30 bg-surface-container-lowest/70 shrink-0"><div class="flex items-center gap-space-sm min-w-0"><img alt="MPLADS Anomaly Intelligence Emblem" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VbzTEt6GgOICwFq7_Ka4dwRulPYEVpn1KQnIqANhJqCbVSZ3S4TDR6axMcG2plE9u7zavjVnyDWiJBCQTf73yx4QqUv7CJPTMIweUbDr46hkR-VhC3P6ZQJNOF4cwau5ULNP0w8FrgSZjKe0PuoEWbhPU-GcS1ppL0pgpolF3Pl8tP_q-3LI3G_u6BNmstwaPV2o_eMCfI_EN3WKuamMdYY8TXSdqIm3rg05nM7Tb46bsjGTv-8yx6YWeA"/><div class="flex flex-col truncate"><span class="font-headline-panel text-body-dense-bold text-on-surface truncate leading-tight">MPLADS INTEL</span><span class="font-label-code text-badge-status text-on-surface-variant truncate uppercase tracking-wider">Sovereign Audit</span></div></div><span class="font-badge-status text-badge-status px-1.5 py-0.5 rounded bg-surface-container-high text-primary border border-outline-variant/50 shrink-0">SOC v2.4</span></div><div class="overflow-y-auto flex-1 px-space-sm py-space-sm space-y-space-md"><div class="px-space-xs"><span class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">Core Oversight</span></div><nav class="space-y-space-2xs" data-active-classes="bg-surface-container-high text-primary border-l-2 border-primary"><a aria-current="page" class="group flex items-center justify-between px-space-sm h-row-height-condensed rounded-DEFAULT transition-colors font-body-dense bg-surface-container-high text-primary border-l-2 border-primary" data-path="overview" href="#"><div class="flex items-center gap-space-sm truncate"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">monitoring</span><span class="truncate">Overview</span></div><span class="font-label-code text-badge-status text-tertiary bg-tertiary-container/20 px-1 py-0.2 rounded">LIVE</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="investigation" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">travel_explore</span><span class="truncate">Investigation</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="projects" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">account_tree</span><span class="truncate">Projects</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="mps-and-constituencies" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">how_to_vote</span><span class="truncate">MPs &amp; Constituencies</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="vendors" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">storefront</span><span class="truncate">Vendors</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="implementing-agencies" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">corporate_fare</span><span class="truncate">Implementing Agencies</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="geospatial-intelligence" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">satellite_alt</span><span class="truncate">Geospatial Intelligence</span></a><a class="group flex items-center justify-between px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="anomaly-alerts" href="#"><div class="flex items-center gap-space-sm truncate"><span class="material-symbols-outlined text-[16px] text-secondary group-hover:text-secondary">emergency_home</span><span class="truncate">Anomaly Alerts</span></div><span class="font-label-code text-badge-status bg-secondary-container text-on-secondary-container px-1.5 py-0.2 rounded font-bold border border-secondary/30">42</span></a></nav><div class="h-px bg-outline-variant/30 my-space-xs"></div><div class="px-space-xs"><span class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">Statutory Operations</span></div><nav class="space-y-space-2xs" data-active-classes="bg-surface-container-high text-primary border-l-2 border-primary"><a class="group flex items-center justify-between px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="data-sources" href="#"><div class="flex items-center gap-space-sm truncate"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">hub</span><span class="truncate">Data Sources</span></div><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="model-monitoring" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">neurology</span><span class="truncate">Model Monitoring</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="audit-reports" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">gavel</span><span class="truncate">Audit Reports</span></a><a class="group flex items-center gap-space-sm px-space-sm h-row-height-condensed rounded-DEFAULT text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-body-dense text-body-dense" data-path="system-settings" href="#"><span class="material-symbols-outlined text-[16px] text-on-surface-variant group-hover:text-on-surface">admin_panel_settings</span><span class="truncate">System Settings</span></a></nav></div></div><div class="p-space-sm bg-surface-container border-t border-outline-variant/30 shrink-0"><div class="flex items-center gap-space-sm"><div class="relative shrink-0"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEZNXDQOhe2ERnrUFX6DyuNxOBW2iecGf1p5VVujy1Pj1MDFyMc3INF3-mzYqCDBAtHcRty6TvpGkjW03NzAg8PAEGZ55V6tHVI2D0DhccXZqCURZX5GS2sdO1epttx9AQ953vYc8Wo23gTPKKIpfo-7wHgZ5DMUnoP2SjFR4jH74Mr_0KqFSJlJIGMOHhTKS0joNJC_zuzgW_jG0Exv_OThb1bc27pG7ifSiO2oCSE0bkSfjjHK35Ww"/><span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-tertiary ring-2 ring-surface-container"></span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-body-dense-bold text-body-dense text-on-surface truncate leading-tight">Dr. Rajeshwar Rao, IA&amp;AS</span><span class="font-label-code text-badge-status text-on-surface-variant truncate leading-none mt-0.5">Principal Auditor General</span><span class="font-label-code text-badge-status text-primary/80 truncate leading-none mt-0.5">MoSPI / CAG Oversight</span></div></div></div></aside><div class="pl-[260px] flex flex-col min-h-screen"><header class="fixed top-0 left-[260px] right-0 h-14 bg-surface-container-low/95 backdrop-blur-md border-b border-outline-variant/30 z-40 flex items-center justify-between px-grid-margin-desktop gap-space-md"><div class="flex items-center gap-space-sm shrink-0"><span class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">National Audit Command</span><span class="material-symbols-outlined text-[14px] text-outline">chevron_right</span><div class="flex items-center gap-space-xs"><span class="font-body-dense-bold text-body-dense text-on-surface">Overview Dashboard</span><span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-tertiary-container/10 border border-tertiary/20 text-tertiary font-badge-status text-badge-status"><span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>LIVE FEED</span></div></div><div class="flex-1 max-w-xl mx-auto"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-2.5 text-[16px] text-on-surface-variant pointer-events-none">search</span><input class="w-full h-control-height-compact bg-surface-container-lowest border border-outline-variant/50 rounded-DEFAULT pl-8 pr-16 text-body-dense font-body-dense text-on-surface placeholder:text-outline focus:outline-none focus:border-primary" placeholder="Search projects, MPs, vendors, agencies, villages... (Press '/' to focus)" type="text"/><div class="absolute right-2 flex items-center gap-1 pointer-events-none"><span class="font-label-code text-badge-status px-1 rounded bg-surface-container text-on-surface-variant border border-outline-variant/30">DB: ALL</span><span class="font-label-code text-badge-status px-1 rounded bg-surface-container text-on-surface-variant border border-outline-variant/30">/</span></div></div></div><div class="flex items-center gap-space-md shrink-0"><div class="hidden xl:flex flex-col items-end"><span class="font-label-code text-badge-status text-tertiary flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>Updated 8 min ago</span><span class="font-label-code text-badge-status text-on-surface-variant">25 States • 740+ Constituencies</span></div><div class="h-4 w-px bg-outline-variant/30 hidden xl:block"></div><span class="font-badge-status text-badge-status px-2 py-0.5 rounded bg-error-container text-on-error-container border border-error/30 uppercase tracking-wider font-bold">RESTRICTED // GOVT AUDIT</span><button class="relative p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-0.5 right-0.5 w-4 h-4 rounded-full bg-secondary-container text-on-secondary-container border border-secondary/40 font-badge-status text-[9px] flex items-center justify-center font-bold">42</span></button><img alt="Profile Quick Access" class="w-7 h-7 rounded-full object-cover ring-1 ring-outline-variant cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEZNXDQOhe2ERnrUFX6DyuNxOBW2iecGf1p5VVujy1Pj1MDFyMc3INF3-mzYqCDBAtHcRty6TvpGkjW03NzAg8PAEGZ55V6tHVI2D0DhccXZqCURZX5GS2sdO1epttx9AQ953vYc8Wo23gTPKKIpfo-7wHgZ5DMUnoP2SjFR4jH74Mr_0KqFSJlJIGMOHhTKS0joNJC_zuzgW_jG0Exv_OThb1bc27pG7ifSiO2oCSE0bkSfjjHK35Ww"/></div></header><main class="w-full pt-14 pb-8 bg-surface-container-lowest min-h-screen"><div class="flex flex-col w-full text-on-surface select-none pb-12">
+<!-- ========================================== -->
+<!-- 1. HEADER, PIPELINE STRIP & FILTER BAR     -->
+<!-- ========================================== -->
+<div class="flex flex-col gap-space-sm px-grid-margin-desktop pt-space-md border-b border-outline-variant/30 bg-surface-container-lowest/80">
+<!-- Title & Quick Controls -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h1 class="font-headline-panel text-headline-panel text-on-surface tracking-tight font-bold">
+            MPLADS Anomaly Intelligence
+          </h1>
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-error-container/40 text-error border border-error/40 font-bold uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+            DEFCON 2 MONITORING
+          </span>
+</div>
+<p class="font-body-dense text-body-dense text-on-surface-variant mt-0.5">
+          National implementation monitoring, statistical outlier detection, and sovereign public expenditure integrity.
+        </p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0 flex-wrap">
+<div class="flex items-center bg-surface-container border border-outline-variant/50 rounded-DEFAULT px-space-sm h-control-height-compact gap-space-xs text-on-surface-variant font-label-code text-badge-status">
+<span class="material-symbols-outlined text-[14px] text-outline">calendar_today</span>
+<span>FY 2025-26</span>
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>
+</div>
+<div class="flex items-center bg-surface-container border border-outline-variant/50 rounded-DEFAULT px-space-sm h-control-height-compact gap-space-xs text-on-surface-variant font-label-code text-badge-status">
+<span class="material-symbols-outlined text-[14px] text-outline">tune</span>
+<span>All Monitored Quarters</span>
+<span class="material-symbols-outlined text-[14px]">arrow_drop_down</span>
+</div>
+<button class="flex items-center gap-1.5 bg-primary-container hover:bg-primary-container/80 text-on-primary font-body-dense-bold text-body-dense px-space-sm h-control-height-compact rounded-DEFAULT transition-colors shadow-sm" type="button">
+<span class="material-symbols-outlined text-[16px]">sim_card_download</span>
+<span>Export Intelligence Briefing</span>
+</button>
+</div>
+</div>
+<!-- AI Detection Pipeline Strip -->
+<div class="bg-surface-container border border-outline-variant/30 rounded-DEFAULT p-space-xs flex items-center justify-between text-on-surface-variant font-label-code text-badge-status overflow-x-auto gap-2">
+<div class="flex items-center gap-2 shrink-0">
+<span class="text-primary font-bold tracking-wider">DETECTION PIPELINE:</span>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Rule Engine (98 checks)</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>Statistical Engine (Z-Score &amp; IQR)</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-surface-container-high border border-outline-variant/40 text-on-surface">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+<span>ML Anomaly Engine (IsolationForest)</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-primary/10 border border-primary/40 text-primary font-bold">
+<span class="material-symbols-outlined text-[12px]">analytics</span>
+<span>Consolidated Risk Score</span>
+</div>
+<span class="material-symbols-outlined text-[14px] text-outline">arrow_forward</span>
+<div class="flex items-center gap-1.5 px-2 py-1 rounded bg-error-container/30 border border-error/50 text-error font-bold">
+<span class="material-symbols-outlined text-[12px] animate-pulse">crisis_alert</span>
+<span>Automated Audit Alert</span>
+</div>
+</div>
+<div class="hidden xl:flex items-center gap-2 text-outline shrink-0 text-[10px]">
+<span>LATENCY: 42ms</span>
+<span>•</span>
+<span>ACCURACY: 98.6%</span>
+</div>
+</div>
+<!-- Combinable Filter Bar -->
+<div class="py-space-xs flex flex-wrap items-center gap-space-xs text-body-dense font-body-dense">
+<div class="relative min-w-[120px]">
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-DEFAULT px-2 py-1 text-on-surface font-label-code text-badge-status focus:outline-none focus:border-primary appearance-none pr-6">
+<option>State: Maharashtra (Active)</option>
+<option>Uttar Pradesh</option>
+<option>Karnataka</option>
+<option>Bihar</option>
+<option>All States (25)</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-outline absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative min-w-[110px]">
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-DEFAULT px-2 py-1 text-on-surface font-label-code text-badge-status focus:outline-none focus:border-primary appearance-none pr-6">
+<option>District: All (36)</option>
+<option>Ahmednagar</option>
+<option>Pune</option>
+<option>Nagpur</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-outline absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative min-w-[120px]">
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-DEFAULT px-2 py-1 text-on-surface font-label-code text-badge-status focus:outline-none focus:border-primary appearance-none pr-6">
+<option>Constituency: All</option>
+<option>Ahmednagar (MH-14)</option>
+<option>Lucknow East (UP-32)</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-outline absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative min-w-[110px]">
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-DEFAULT px-2 py-1 text-on-surface font-label-code text-badge-status focus:outline-none focus:border-primary appearance-none pr-6">
+<option>MP: All Electors</option>
+<option>Rahul Sharma</option>
+<option>Smt. Aparna Sen</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-outline absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative min-w-[130px]">
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-DEFAULT px-2 py-1 text-on-surface font-label-code text-badge-status focus:outline-none focus:border-primary appearance-none pr-6">
+<option>Category: Water &amp; Infra</option>
+<option>Roads &amp; Transport</option>
+<option>Healthcare</option>
+<option>Education</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-outline absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative min-w-[110px]">
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-DEFAULT px-2 py-1 text-on-surface font-label-code text-badge-status focus:outline-none focus:border-primary appearance-none pr-6">
+<option>Vendor: All Listed</option>
+<option>Apex Infra Ltd</option>
+<option>Sai Krupa Const.</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-outline absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative min-w-[110px]">
+<select class="w-full bg-surface-container-lowest border border-outline-variant/40 rounded-DEFAULT px-2 py-1 text-on-surface font-label-code text-badge-status focus:outline-none focus:border-primary appearance-none pr-6">
+<option>Agency: Zila Parishad</option>
+<option>PWD Division 1</option>
+<option>All Agencies</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-outline absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="relative min-w-[120px]">
+<select class="w-full bg-secondary-container/30 border border-secondary/40 text-on-secondary-container rounded-DEFAULT px-2 py-1 font-label-code text-badge-status font-bold focus:outline-none appearance-none pr-6">
+<option>Risk: Critical &amp; High</option>
+<option>Critical Only (&gt;90)</option>
+<option>All Risk Profiles</option>
+</select>
+<span class="material-symbols-outlined text-[14px] text-secondary absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest border border-outline-variant/40 rounded px-2 py-1 font-label-code text-badge-status text-on-surface-variant">
+<span>Range: ₹25L - ₹5Cr</span>
+</div>
+</div>
+<!-- Active Removable Filter Chips -->
+<div class="flex items-center gap-space-xs pb-space-sm flex-wrap text-badge-status font-label-code">
+<span class="text-outline uppercase text-[10px]">Active Filters:</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-surface-container-high border border-outline-variant/50 text-on-surface rounded">
+        State: Maharashtra
+        <button class="hover:text-error ml-1 font-bold">×</button>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-secondary-container/40 border border-secondary/40 text-on-secondary-container rounded">
+        Risk: Critical &amp; High
+        <button class="hover:text-error ml-1 font-bold">×</button>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-surface-container-high border border-outline-variant/50 text-on-surface rounded">
+        FY: 2025-26
+        <button class="hover:text-error ml-1 font-bold">×</button>
+</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 bg-surface-container-high border border-outline-variant/50 text-on-surface rounded">
+        Category: Infrastructure &amp; Water Works
+        <button class="hover:text-error ml-1 font-bold">×</button>
+</span>
+<button class="text-primary hover:underline ml-2 uppercase text-[10px] font-bold tracking-wider">
+        Reset All (4 Active)
+      </button>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 2. ROW 1: KPI STRIP (4 Data-Dense Cards)   -->
+<!-- ========================================== -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm p-grid-margin-desktop pb-0">
+<!-- Card 1: Total Allocated -->
+<div class="bg-surface-container border border-outline-variant/40 rounded-DEFAULT p-space-md flex flex-col justify-between relative overflow-hidden group hover:border-outline-variant transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">TOTAL ALLOCATED</span>
+<span class="material-symbols-outlined text-[16px] text-outline group-hover:text-primary transition-colors">account_balance</span>
+</div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-metric-headline text-metric-headline font-bold text-on-surface">₹ 1,245.00 Cr</span>
+<span class="font-label-code text-badge-status text-tertiary font-bold bg-tertiary-container/20 px-1.5 py-0.5 rounded">+4.2% YoY</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-dense text-[11px] mb-2">
+<span>Across 740 Constituencies</span>
+<span class="font-label-code text-outline">FY 25-26 CAP</span>
+</div>
+<!-- Progress / Sparkline -->
+<div class="w-full bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+<div class="bg-primary h-full rounded" style="width: 100%;"></div>
+</div>
+</div>
+<!-- Card 2: Total Sanctioned -->
+<div class="bg-surface-container border border-outline-variant/40 rounded-DEFAULT p-space-md flex flex-col justify-between relative overflow-hidden group hover:border-primary/50 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">TOTAL SANCTIONED</span>
+<span class="material-symbols-outlined text-[16px] text-primary">fact_check</span>
+</div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-metric-headline text-metric-headline font-bold text-primary">₹ 1,084.60 Cr</span>
+<span class="font-label-code text-badge-status text-primary font-bold bg-primary/10 px-1.5 py-0.5 rounded">87.1%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-dense text-[11px] mb-2">
+<span>84,219 approved works</span>
+<span class="font-label-code text-outline">Target: 92%</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+<div class="bg-primary h-full rounded" style="width: 87.1%;"></div>
+</div>
+</div>
+<!-- Card 3: Total Spent / Disbursed -->
+<div class="bg-surface-container border border-outline-variant/40 rounded-DEFAULT p-space-md flex flex-col justify-between relative overflow-hidden group hover:border-tertiary/50 transition-colors">
+<div class="flex items-center justify-between mb-2">
+<span class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">TOTAL DISBURSED</span>
+<span class="material-symbols-outlined text-[16px] text-tertiary">payments</span>
+</div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-metric-headline text-metric-headline font-bold text-tertiary">₹ 792.40 Cr</span>
+<span class="font-label-code text-badge-status text-tertiary font-bold bg-tertiary-container/20 px-1.5 py-0.5 rounded">73.1%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-dense text-[11px] mb-2">
+<span>₹292.20 Cr unspent balance</span>
+<span class="font-label-code text-outline">PFMS Linked</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+<div class="bg-tertiary h-full rounded" style="width: 73.1%;"></div>
+</div>
+</div>
+<!-- Card 4: Flagged Projects -->
+<div class="bg-surface-container border border-error/50 rounded-DEFAULT p-space-md flex flex-col justify-between relative overflow-hidden bg-gradient-to-br from-surface-container via-surface-container to-secondary-container/20 shadow-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-table-header text-table-header text-secondary uppercase tracking-wider font-bold">FLAGGED PROJECTS</span>
+<span class="font-label-code text-[10px] text-error font-bold bg-secondary-container px-1.5 py-0.5 rounded border border-error/40 animate-pulse">
+          CRITICAL RISK ELEVATED
+        </span>
+</div>
+<div class="flex items-baseline justify-between mb-1">
+<span class="font-metric-headline text-metric-headline font-bold text-error">2,481</span>
+<span class="font-label-code text-badge-status text-error font-bold">12.8% Works</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-body-dense text-[11px] mb-2">
+<span class="text-secondary">₹148.60 Cr flagged capital</span>
+<span class="font-label-code text-error font-bold">42 NEW TODAY</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-1.5 rounded overflow-hidden">
+<div class="bg-error h-full rounded" style="width: 42%;"></div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 3. ROW 2: CRITICAL PROJECTS TABLE + FEED   -->
+<!-- ========================================== -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-sm p-grid-margin-desktop pb-0">
+<!-- Projects Table (Col 8) -->
+<div class="xl:col-span-8 bg-surface-container border border-outline-variant/40 rounded-DEFAULT flex flex-col overflow-hidden">
+<!-- Table Top Toolbar -->
+<div class="px-space-md py-space-xs border-b border-outline-variant/30 bg-surface-container-low flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">gavel</span>
+<span class="font-headline-panel text-headline-panel text-on-surface">Critical / High-Risk Projects Ledger</span>
+<span class="font-label-code text-badge-status bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded font-bold border border-secondary/40">2,481 Works</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<div class="relative">
+<input class="bg-surface-container-lowest border border-outline-variant/40 rounded px-2 pl-6 py-0.5 text-body-dense font-body-dense text-on-surface placeholder:text-outline focus:outline-none focus:border-primary text-[11px] w-40" placeholder="Filter current list..." type="text"/>
+<span class="material-symbols-outlined text-[13px] text-outline absolute left-1.5 top-1.5 pointer-events-none">filter_list</span>
+</div>
+<button class="bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-code text-badge-status px-2 py-1 rounded border border-outline-variant/40 flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[13px]">download</span>
+<span>CSV</span>
+</button>
+<a class="font-label-code text-badge-status text-primary hover:underline flex items-center gap-0.5 ml-1 font-bold" href="#">
+            View all 2,481 →
+          </a>
+</div>
+</div>
+<!-- Scannable Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left font-body-dense text-body-dense">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant font-table-header text-table-header uppercase">
+<th class="py-2 px-3">Risk</th>
+<th class="py-2 px-2">Work ID &amp; Description</th>
+<th class="py-2 px-2">Location &amp; MP</th>
+<th class="py-2 px-2">Category</th>
+<th class="py-2 px-2 text-right">Sanctioned</th>
+<th class="py-2 px-2 text-right">Disbursed</th>
+<th class="py-2 px-2 text-center">Aging</th>
+<th class="py-2 px-3">Primary Forensic Anomaly Trigger</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1 (Critical 96) -->
+<tr class="hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="openDossier('WS/MH14/25-26/004812', 'Community RO Water Purification Center &amp; Tanker Shed', 96, 'CRITICAL', 'Maharashtra', 'Ahmednagar', 'Rahul Sharma', 'Apex Infra Projects Ltd.', '₹ 48.50 L', '₹ 46.20 L (95.2%)', '35% Physical Progress', 'Cost anomaly (2.8x category median) &amp; Disbursement exceeds work stage')">
+<td class="py-2 px-3 whitespace-nowrap">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-error-container text-on-error-container border border-error/40 font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> 96 CRIT
+                </span>
+</td>
+<td class="py-2 px-2">
+<div class="font-label-code text-primary text-[11px] font-bold group-hover:underline">WS/MH14/25-26/004812</div>
+<div class="text-on-surface text-[12px] truncate max-w-[210px]" title="Community RO Water Purification Center &amp; Tanker Shed">Community RO Water Purification Center &amp; Tanker Shed</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap">
+<div class="text-on-surface text-[11px] font-semibold">Ahmednagar, MH</div>
+<div class="text-on-surface-variant text-[10px]">Rahul Sharma</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap text-on-surface-variant text-[11px]">Water &amp; Sanit.</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹48.50 L</td>
+<td class="py-2 px-2 text-right font-label-code text-error font-bold">₹46.20 L <span class="text-[10px] text-on-surface-variant font-normal">(95%)</span></td>
+<td class="py-2 px-2 text-center font-label-code text-error font-bold text-[11px]">+180d</td>
+<td class="py-2 px-3">
+<span class="inline-block px-1.5 py-0.5 rounded bg-error-container/20 text-error border border-error/30 text-[10px] font-body-dense max-w-[240px] truncate" title="Cost anomaly (2.8x category median) &amp; Disbursement exceeds work stage">
+                  Cost anomaly (2.8x median) &amp; Disb exceeds stage
+                </span>
+</td>
+</tr>
+<!-- Row 2 (Critical 94) -->
+<tr class="hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="openDossier('WS/UP32/24-25/002913', 'Concrete Paving &amp; Drainage Channel Package 4', 94, 'CRITICAL', 'Uttar Pradesh', 'Lucknow East', 'Smt. Aparna Sen', 'Sai Krupa Construction Co.', '₹ 82.00 L', '₹ 79.50 L (97.0%)', '40% Physical Progress', 'Duplicate GPS footprint detected (180m from Work #00192)')">
+<td class="py-2 px-3 whitespace-nowrap">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-error-container text-on-error-container border border-error/40 font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> 94 CRIT
+                </span>
+</td>
+<td class="py-2 px-2">
+<div class="font-label-code text-primary text-[11px] font-bold group-hover:underline">WS/UP32/24-25/002913</div>
+<div class="text-on-surface text-[12px] truncate max-w-[210px]">Concrete Paving &amp; Drainage Channel Package 4</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap">
+<div class="text-on-surface text-[11px] font-semibold">Lucknow East, UP</div>
+<div class="text-on-surface-variant text-[10px]">Smt. Aparna Sen</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap text-on-surface-variant text-[11px]">Roads &amp; Infra</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹82.00 L</td>
+<td class="py-2 px-2 text-right font-label-code text-error font-bold">₹79.50 L <span class="text-[10px] text-on-surface-variant font-normal">(97%)</span></td>
+<td class="py-2 px-2 text-center font-label-code text-error font-bold text-[11px]">+240d</td>
+<td class="py-2 px-3">
+<span class="inline-block px-1.5 py-0.5 rounded bg-error-container/20 text-error border border-error/30 text-[10px] font-body-dense max-w-[240px] truncate" title="Duplicate GPS footprint detected (180m from Work #00192)">
+                  Duplicate GPS footprint detected (180m from #00192)
+                </span>
+</td>
+</tr>
+<!-- Row 3 (High 88) -->
+<tr class="hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="openDossier('WS/KA08/25-26/007421', 'Smart Anganwadi Center Digitization &amp; Solar Microgrid', 88, 'HIGH', 'Karnataka', 'Bangalore South', 'Tejaswi M.', 'Bharat Civil &amp; Electric Works', '₹ 35.00 L', '₹ 34.00 L (97.1%)', '55% Physical Progress', 'Single bidder cartel pattern (3 common directors across bidding entities)')">
+<td class="py-2 px-3 whitespace-nowrap">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/40 font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 88 HIGH
+                </span>
+</td>
+<td class="py-2 px-2">
+<div class="font-label-code text-primary text-[11px] font-bold group-hover:underline">WS/KA08/25-26/007421</div>
+<div class="text-on-surface text-[12px] truncate max-w-[210px]">Smart Anganwadi Center Digitization &amp; Solar</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap">
+<div class="text-on-surface text-[11px] font-semibold">Bangalore South, KA</div>
+<div class="text-on-surface-variant text-[10px]">Tejaswi M.</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap text-on-surface-variant text-[11px]">Education &amp; Tech</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹35.00 L</td>
+<td class="py-2 px-2 text-right font-label-code text-secondary font-bold">₹34.00 L <span class="text-[10px] text-on-surface-variant font-normal">(97%)</span></td>
+<td class="py-2 px-2 text-center font-label-code text-secondary font-bold text-[11px]">+95d</td>
+<td class="py-2 px-3">
+<span class="inline-block px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/30 text-[10px] font-body-dense max-w-[240px] truncate" title="Single bidder cartel pattern (3 common directors)">
+                  Single bidder cartel pattern (3 common directors)
+                </span>
+</td>
+</tr>
+<!-- Row 4 (High 85) -->
+<tr class="hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="openDossier('WS/BR12/24-25/009104', 'Rural Healthcare Sub-center Construction Block B', 85, 'HIGH', 'Bihar', 'Muzaffarpur', 'Ajay Kumar Rai', 'Omkar Rural Enterprises', '₹ 65.00 L', '₹ 42.00 L (64.6%)', '20% Physical Progress', 'Milestone payment released without Geo-tagged photo verification')">
+<td class="py-2 px-3 whitespace-nowrap">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/40 font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 85 HIGH
+                </span>
+</td>
+<td class="py-2 px-2">
+<div class="font-label-code text-primary text-[11px] font-bold group-hover:underline">WS/BR12/24-25/009104</div>
+<div class="text-on-surface text-[12px] truncate max-w-[210px]">Rural Healthcare Sub-center Construction Block B</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap">
+<div class="text-on-surface text-[11px] font-semibold">Muzaffarpur, BR</div>
+<div class="text-on-surface-variant text-[10px]">Ajay Kumar Rai</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap text-on-surface-variant text-[11px]">Healthcare</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹65.00 L</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹42.00 L <span class="text-[10px] text-on-surface-variant font-normal">(65%)</span></td>
+<td class="py-2 px-2 text-center font-label-code text-error font-bold text-[11px]">+310d</td>
+<td class="py-2 px-3">
+<span class="inline-block px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/30 text-[10px] font-body-dense max-w-[240px] truncate" title="Milestone payment released without Geo-tagged photo verification">
+                  Milestone payment released without Geo-tagged photo
+                </span>
+</td>
+</tr>
+<!-- Row 5 (High 82) -->
+<tr class="hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="openDossier('WS/RJ03/25-26/003319', 'High-Mast LED Lighting &amp; Public Park Development', 82, 'HIGH', 'Rajasthan', 'Jodhpur', 'Vikramaditya S.', 'Apex Infra Projects Ltd.', '₹ 28.50 L', '₹ 28.50 L (100%)', '80% Physical Progress', 'Cost per unit 2.3x state benchmark rate')">
+<td class="py-2 px-3 whitespace-nowrap">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/40 font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 82 HIGH
+                </span>
+</td>
+<td class="py-2 px-2">
+<div class="font-label-code text-primary text-[11px] font-bold group-hover:underline">WS/RJ03/25-26/003319</div>
+<div class="text-on-surface text-[12px] truncate max-w-[210px]">High-Mast LED Lighting &amp; Public Park Dev</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap">
+<div class="text-on-surface text-[11px] font-semibold">Jodhpur, RJ</div>
+<div class="text-on-surface-variant text-[10px]">Vikramaditya S.</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap text-on-surface-variant text-[11px]">Urban Amenities</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹28.50 L</td>
+<td class="py-2 px-2 text-right font-label-code text-tertiary font-semibold">₹28.50 L <span class="text-[10px] text-on-surface-variant font-normal">(100%)</span></td>
+<td class="py-2 px-2 text-center font-label-code text-secondary font-bold text-[11px]">+60d</td>
+<td class="py-2 px-3">
+<span class="inline-block px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/30 text-[10px] font-body-dense max-w-[240px] truncate" title="Cost per unit 2.3x state benchmark rate">
+                  Cost per unit 2.3x state benchmark rate
+                </span>
+</td>
+</tr>
+<!-- Row 6 (High 79) -->
+<tr class="hover:bg-surface-container-high transition-colors cursor-pointer group" onclick="openDossier('WS/WB19/24-25/001855', 'Flood Protection Embankment &amp; Retaining Wall', 79, 'HIGH', 'West Bengal', 'Malda South', 'Dr. S. Mukherjee', 'Sai Krupa Construction Co.', '₹ 110.00 L', '₹ 98.00 L (89.1%)', '60% Physical Progress', 'Rapid consecutive disbursement within 48 hours without stage clearance')">
+<td class="py-2 px-3 whitespace-nowrap">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/40 font-bold inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 79 HIGH
+                </span>
+</td>
+<td class="py-2 px-2">
+<div class="font-label-code text-primary text-[11px] font-bold group-hover:underline">WS/WB19/24-25/001855</div>
+<div class="text-on-surface text-[12px] truncate max-w-[210px]">Flood Protection Embankment &amp; Retaining Wall</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap">
+<div class="text-on-surface text-[11px] font-semibold">Malda South, WB</div>
+<div class="text-on-surface-variant text-[10px]">Dr. S. Mukherjee</div>
+</td>
+<td class="py-2 px-2 whitespace-nowrap text-on-surface-variant text-[11px]">Flood Relief</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹110.00 L</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹98.00 L <span class="text-[10px] text-on-surface-variant font-normal">(89%)</span></td>
+<td class="py-2 px-2 text-center font-label-code text-secondary font-bold text-[11px]">+150d</td>
+<td class="py-2 px-3">
+<span class="inline-block px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/30 text-[10px] font-body-dense max-w-[240px] truncate" title="Rapid consecutive disbursement within 48 hours">
+                  Rapid consecutive disbursement within 48 hrs
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination Strip -->
+<div class="p-2 border-t border-outline-variant/30 bg-surface-container-lowest flex items-center justify-between text-[11px] font-label-code text-on-surface-variant">
+<span>Showing 6 of 2,481 priority anomalies (Filtered for immediate statutory review)</span>
+<div class="flex items-center gap-1">
+<button class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/30 hover:bg-surface-container-high text-on-surface">Prev</button>
+<span class="px-2 py-0.5 bg-primary/20 text-primary border border-primary/40 rounded font-bold">1</span>
+<button class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/30 hover:bg-surface-container-high text-on-surface">2</button>
+<button class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/30 hover:bg-surface-container-high text-on-surface">3</button>
+<span>...</span>
+<button class="px-2 py-0.5 rounded bg-surface-container border border-outline-variant/30 hover:bg-surface-container-high text-on-surface">Next</button>
+</div>
+</div>
+</div>
+<!-- Live Anomaly Feed (Col 4) -->
+<div class="xl:col-span-4 bg-surface-container border border-outline-variant/40 rounded-DEFAULT flex flex-col overflow-hidden">
+<div class="px-space-md py-space-xs border-b border-outline-variant/30 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="w-2 h-2 rounded-full bg-error animate-ping"></span>
+<span class="font-headline-panel text-headline-panel text-on-surface">Live Anomaly Feed</span>
+</div>
+<span class="font-label-code text-badge-status text-tertiary bg-tertiary-container/10 px-1.5 py-0.5 rounded border border-tertiary/20">SOC SYNC 2.4s</span>
+</div>
+<div class="p-space-sm flex-1 overflow-y-auto space-y-space-xs max-h-[385px]">
+<!-- Feed Item 1 -->
+<div class="p-2 rounded bg-surface-container-low border border-error/30 hover:border-error transition-all cursor-pointer" onclick="openDossier('WS/MH14/25-26/004812', 'Disbursement exceeds physical completion', 96, 'CRITICAL', 'Maharashtra', 'Ahmednagar', 'Rahul Sharma', 'Apex Infra Ltd.', '₹ 48.50 L', '₹ 46.20 L (95%)', '35% completion', 'Disbursement exceeds physical completion level (95% paid vs 35% completed)')">
+<div class="flex items-center justify-between font-label-code text-badge-status mb-1">
+<span class="text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+              [CRITICAL 96]
+            </span>
+<span class="text-outline">2 min ago</span>
+</div>
+<p class="font-body-dense text-body-dense text-on-surface leading-tight">
+            Disbursement exceeds physical completion level (95% paid vs 35% completed)
+          </p>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant mt-1.5 pt-1 border-t border-outline-variant/20">
+<span>Impact: <span class="text-error font-bold">₹18.40 L</span></span>
+<span>Ahmednagar, MH</span>
+</div>
+</div>
+<!-- Feed Item 2 -->
+<div class="p-2 rounded bg-surface-container-low border border-error/30 hover:border-error transition-all cursor-pointer" onclick="openDossier('WS/UP32/24-25/002913', 'Project unit cost 2.8x benchmark', 93, 'CRITICAL', 'Uttar Pradesh', 'Lucknow', 'Smt. Aparna Sen', 'Sai Krupa Const.', '₹ 82.00 L', '₹ 79.50 L (97%)', '40% completion', 'Project unit cost 2.8x category benchmark median')">
+<div class="flex items-center justify-between font-label-code text-badge-status mb-1">
+<span class="text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">warning</span>
+              [CRITICAL 93]
+            </span>
+<span class="text-outline">7 min ago</span>
+</div>
+<p class="font-body-dense text-body-dense text-on-surface leading-tight">
+            Project unit cost 2.8× category benchmark median
+          </p>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant mt-1.5 pt-1 border-t border-outline-variant/20">
+<span>Impact: <span class="text-error font-bold">₹34.20 L</span></span>
+<span>Lucknow, UP</span>
+</div>
+</div>
+<!-- Feed Item 3 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/30 hover:border-secondary/50 transition-all cursor-pointer">
+<div class="flex items-center justify-between font-label-code text-badge-status mb-1">
+<span class="text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">crisis_alert</span>
+              [HIGH 87]
+            </span>
+<span class="text-outline">14 min ago</span>
+</div>
+<p class="font-body-dense text-body-dense text-on-surface leading-tight">
+            Repeated single vendor award concentration across 12 works
+          </p>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant mt-1.5 pt-1 border-t border-outline-variant/20">
+<span>Impact: <span class="text-secondary font-bold">₹1.42 Cr</span></span>
+<span>Muzaffarpur, BR</span>
+</div>
+</div>
+<!-- Feed Item 4 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/30 hover:border-secondary/50 transition-all cursor-pointer">
+<div class="flex items-center justify-between font-label-code text-badge-status mb-1">
+<span class="text-secondary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">crisis_alert</span>
+              [HIGH 82]
+            </span>
+<span class="text-outline">26 min ago</span>
+</div>
+<p class="font-body-dense text-body-dense text-on-surface leading-tight">
+            Temporal cluster: 7 works sanctioned to same agency within 3 hours
+          </p>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant mt-1.5 pt-1 border-t border-outline-variant/20">
+<span>Impact: <span class="text-secondary font-bold">₹96.00 L</span></span>
+<span>Bangalore, KA</span>
+</div>
+</div>
+<!-- Feed Item 5 -->
+<div class="p-2 rounded bg-surface-container-low border border-outline-variant/30 hover:border-outline transition-all cursor-pointer">
+<div class="flex items-center justify-between font-label-code text-badge-status mb-1">
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">info</span>
+              [MEDIUM 68]
+            </span>
+<span class="text-outline">42 min ago</span>
+</div>
+<p class="font-body-dense text-body-dense text-on-surface leading-tight">
+            Unspent balance idle &gt;18 months without progress report
+          </p>
+<div class="flex items-center justify-between font-label-code text-[10px] text-on-surface-variant mt-1.5 pt-1 border-t border-outline-variant/20">
+<span>Impact: <span class="text-on-surface font-semibold">₹22.10 L</span></span>
+<span>Madurai, TN</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 4. ROW 3: GEOSPATIAL MAP + LIFESPAN FUNNEL -->
+<!-- ========================================== -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-sm p-grid-margin-desktop pb-0">
+<!-- Geospatial Intelligence (Col 7) -->
+<div class="xl:col-span-7 bg-surface-container border border-outline-variant/40 rounded-DEFAULT flex flex-col overflow-hidden">
+<div class="px-space-md py-space-xs border-b border-outline-variant/30 bg-surface-container-low flex flex-wrap items-center justify-between gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">public</span>
+<span class="font-headline-panel text-headline-panel text-on-surface">Geospatial Anomaly Intelligence</span>
+</div>
+<!-- Map Layer Toggles -->
+<div class="flex items-center gap-1 bg-surface-container-lowest p-0.5 rounded border border-outline-variant/30 font-label-code text-[10px]">
+<button class="px-2 py-0.5 rounded bg-primary text-on-primary font-bold">Risk Heatmap</button>
+<button class="px-2 py-0.5 rounded hover:bg-surface-container text-on-surface-variant">Financial Discrepancy</button>
+<button class="px-2 py-0.5 rounded hover:bg-surface-container text-on-surface-variant">Vendor Density</button>
+<button class="px-2 py-0.5 rounded hover:bg-surface-container text-on-surface-variant">Duplicate GPS</button>
+</div>
+</div>
+<div class="p-space-md flex flex-col lg:flex-row gap-space-md">
+<!-- Interactive Synthetic Dark Vector Map -->
+<div class="flex-1 bg-surface-container-lowest border border-outline-variant/30 rounded relative min-h-[300px] flex flex-col justify-between p-3 overflow-hidden">
+<!-- Map Overlay Controls -->
+<div class="absolute top-3 left-3 z-10 flex flex-col gap-1">
+<button class="w-6 h-6 bg-surface-container border border-outline-variant/40 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high text-[14px] font-bold">+</button>
+<button class="w-6 h-6 bg-surface-container border border-outline-variant/40 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high text-[14px] font-bold">-</button>
+<button class="w-6 h-6 bg-surface-container border border-outline-variant/40 rounded flex items-center justify-center text-on-surface hover:bg-surface-container-high text-[11px] font-bold" title="Reset View">⟲</button>
+</div>
+<!-- Synthetic India Heatmap Visual Canvas -->
+<div class="w-full h-full absolute inset-0 flex items-center justify-center pointer-events-none opacity-80">
+<svg class="w-full h-full max-h-[320px]" fill="none" viewbox="0 0 400 380" xmlns="http://www.w3.org/2000/svg">
+<!-- Grid Matrix Lines -->
+<path d="M40 40H360 M40 100H360 M40 160H360 M40 220H360 M40 280H360 M40 340H360" stroke="#232D47" stroke-dasharray="2 2" stroke-width="0.75"></path>
+<path d="M60 20V360 M120 20V360 M180 20V360 M240 20V360 M300 20V360 M360 20V360" stroke="#232D47" stroke-dasharray="2 2" stroke-width="0.75"></path>
+<!-- Simplified India Territorial Outline -->
+<path d="M165 30 L195 45 L205 75 L235 90 L245 110 L280 115 L320 125 L345 155 L310 170 L280 155 L260 180 L235 170 L210 190 L215 230 L205 270 L185 320 L170 345 L155 310 L135 240 L125 180 L95 160 L90 130 L115 110 L140 100 L150 70 Z" fill="#161F36" stroke="#424754" stroke-width="1.5"></path>
+<!-- Anomaly Heat Clusters (States Hotspots) -->
+<!-- Maharashtra (Ahmednagar) Critical -->
+<circle class="animate-pulse" cx="160" cy="225" fill="#EF4444" fill-opacity="0.25" r="28"></circle>
+<circle cx="160" cy="225" fill="#EF4444" fill-opacity="0.45" r="14"></circle>
+<circle cx="160" cy="225" fill="#EF4444" r="4"></circle>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="8" font-weight="bold" x="165" y="222">MH: 16.8%</text>
+<!-- Uttar Pradesh (Lucknow) Critical -->
+<circle cx="210" cy="140" fill="#EF4444" fill-opacity="0.22" r="32"></circle>
+<circle cx="210" cy="140" fill="#EF4444" fill-opacity="0.4" r="16"></circle>
+<circle cx="210" cy="140" fill="#EF4444" r="4"></circle>
+<text fill="#ffb4ab" font-family="JetBrains Mono" font-size="8" font-weight="bold" x="215" y="137">UP: 15.2%</text>
+<!-- Bihar (Muzaffarpur) Elevated -->
+<circle cx="245" cy="155" fill="#F59E0B" fill-opacity="0.25" r="22"></circle>
+<circle cx="245" cy="155" fill="#F59E0B" fill-opacity="0.5" r="10"></circle>
+<circle cx="245" cy="155" fill="#F59E0B" r="3.5"></circle>
+<text fill="#ffdad7" font-family="JetBrains Mono" font-size="8" font-weight="bold" x="252" y="153">BR: 14.9%</text>
+<!-- Karnataka (Bangalore) Elevated -->
+<circle cx="165" cy="275" fill="#EAB308" fill-opacity="0.25" r="20"></circle>
+<circle cx="165" cy="275" fill="#EAB308" fill-opacity="0.45" r="8"></circle>
+<circle cx="165" cy="275" fill="#EAB308" r="3"></circle>
+<text fill="#ffdad7" font-family="JetBrains Mono" font-size="8" font-weight="bold" x="172" y="278">KA: 9.8%</text>
+<!-- Rajasthan (Jodhpur) Moderate -->
+<circle cx="130" cy="140" fill="#EAB308" fill-opacity="0.2" r="16"></circle>
+<circle cx="130" cy="140" fill="#EAB308" r="3"></circle>
+<!-- West Bengal (Malda) -->
+<circle cx="270" cy="170" fill="#F59E0B" fill-opacity="0.2" r="16"></circle>
+<circle cx="270" cy="170" fill="#F59E0B" r="3"></circle>
+<!-- Low risk cluster Tamil Nadu -->
+<circle cx="175" cy="320" fill="#22C55E" fill-opacity="0.2" r="12"></circle>
+<circle cx="175" cy="320" fill="#22C55E" r="3"></circle>
+<text fill="#4ae176" font-family="JetBrains Mono" font-size="7" x="182" y="322">TN: 3.8%</text>
+</svg>
+</div>
+<!-- Map Legend -->
+<div class="mt-auto z-10 bg-surface-container/90 backdrop-blur p-2 rounded border border-outline-variant/30 flex items-center justify-between font-label-code text-[10px] w-full">
+<span class="text-on-surface-variant uppercase font-bold">Risk Intensity:</span>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 text-error"><span class="w-2 h-2 rounded-full bg-error"></span> Critical &gt;15%</span>
+<span class="flex items-center gap-1 text-secondary"><span class="w-2 h-2 rounded-full bg-secondary"></span> Elevated 10-15%</span>
+<span class="flex items-center gap-1 text-on-surface-variant"><span class="w-2 h-2 rounded-full bg-surface-bright"></span> Moderate 5-10%</span>
+<span class="flex items-center gap-1 text-tertiary"><span class="w-2 h-2 rounded-full bg-tertiary"></span> Low &lt;5%</span>
+</div>
+</div>
+</div>
+<!-- Hotspot State Breakdown Cards -->
+<div class="w-full lg:w-56 flex flex-col gap-2 shrink-0 justify-between">
+<div class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">Top Anomaly Regions</div>
+<div class="p-2 rounded bg-surface-container-low border-l-2 border-l-error border border-outline-variant/30 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-body-dense-bold text-on-surface text-[12px]">Maharashtra</span>
+<span class="font-label-code text-badge-status text-error font-bold">16.8%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant text-[10px] font-label-code mt-1">
+<span>342 Flagged Works</span>
+<span class="text-error font-semibold">₹38.4 Cr</span>
+</div>
+</div>
+<div class="p-2 rounded bg-surface-container-low border-l-2 border-l-error border border-outline-variant/30 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-body-dense-bold text-on-surface text-[12px]">Uttar Pradesh</span>
+<span class="font-label-code text-badge-status text-error font-bold">15.2%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant text-[10px] font-label-code mt-1">
+<span>418 Flagged Works</span>
+<span class="text-error font-semibold">₹44.1 Cr</span>
+</div>
+</div>
+<div class="p-2 rounded bg-surface-container-low border-l-2 border-l-secondary border border-outline-variant/30 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-body-dense-bold text-on-surface text-[12px]">Bihar</span>
+<span class="font-label-code text-badge-status text-secondary font-bold">14.9%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant text-[10px] font-label-code mt-1">
+<span>310 Flagged Works</span>
+<span class="text-secondary font-semibold">₹29.8 Cr</span>
+</div>
+</div>
+<div class="p-2 rounded bg-surface-container-low border-l-2 border-l-primary border border-outline-variant/30 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-body-dense-bold text-on-surface text-[12px]">Karnataka</span>
+<span class="font-label-code text-badge-status text-primary font-bold">9.8%</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant text-[10px] font-label-code mt-1">
+<span>182 Flagged Works</span>
+<span class="text-on-surface font-semibold">₹18.2 Cr</span>
+</div>
+</div>
+<button class="w-full text-center py-1.5 rounded bg-surface-container-high hover:bg-surface-bright text-primary font-label-code text-badge-status border border-outline-variant/40">
+            Open Interactive GIS Module →
+          </button>
+</div>
+</div>
+</div>
+<!-- Project Lifespan & Aging Funnel (Col 5) -->
+<div class="xl:col-span-5 bg-surface-container border border-outline-variant/40 rounded-DEFAULT flex flex-col justify-between overflow-hidden">
+<div class="px-space-md py-space-xs border-b border-outline-variant/30 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-tertiary">filter_alt</span>
+<span class="font-headline-panel text-headline-panel text-on-surface">Project Lifespan &amp; Aging Funnel</span>
+</div>
+<span class="font-label-code text-badge-status text-on-surface-variant">Pipeline Attrition</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-md">
+<!-- 4-Stage Funnel -->
+<div class="flex flex-col gap-1.5 font-label-code text-badge-status">
+<!-- Stage 1 -->
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between text-[11px]">
+<span class="text-on-surface font-bold">1. Recommended</span>
+<span class="text-on-surface font-bold">98,400 works (100%)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-3.5 rounded overflow-hidden p-0.5">
+<div class="bg-primary/70 h-full rounded flex items-center px-2 text-[9px] text-on-primary font-bold" style="width: 100%;">
+                ₹1,450.0 Cr
+              </div>
+</div>
+</div>
+<!-- Stage 2 -->
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between text-[11px]">
+<span class="text-primary font-bold">2. Sanctioned</span>
+<span class="text-primary font-bold">84,219 works (85.6%)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-3.5 rounded overflow-hidden p-0.5">
+<div class="bg-primary h-full rounded flex items-center px-2 text-[9px] text-on-primary font-bold" style="width: 85.6%;">
+                ₹1,084.6 Cr
+              </div>
+</div>
+</div>
+<!-- Stage 3 -->
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between text-[11px]">
+<span class="text-tertiary font-bold">3. Disbursed</span>
+<span class="text-tertiary font-bold">68,140 works (69.2%)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-3.5 rounded overflow-hidden p-0.5">
+<div class="bg-tertiary h-full rounded flex items-center px-2 text-[9px] text-on-tertiary font-bold" style="width: 69.2%;">
+                ₹792.4 Cr
+              </div>
+</div>
+</div>
+<!-- Stage 4 -->
+<div class="flex flex-col gap-0.5">
+<div class="flex items-center justify-between text-[11px]">
+<span class="text-on-surface-variant font-bold">4. Completed &amp; Audited</span>
+<span class="text-on-surface font-bold">51,900 works (52.7%)</span>
+</div>
+<div class="w-full bg-surface-container-lowest h-3.5 rounded overflow-hidden p-0.5">
+<div class="bg-surface-bright h-full rounded flex items-center px-2 text-[9px] text-on-surface font-bold" style="width: 52.7%;">
+                ₹598.0 Cr
+              </div>
+</div>
+</div>
+</div>
+<!-- Aging Breakdown for Stuck Works -->
+<div class="bg-surface-container-low border border-outline-variant/30 rounded p-space-sm">
+<div class="flex items-center justify-between mb-2">
+<span class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider">
+              Aging of 16,079 Works Stuck in "Sanctioned"
+            </span>
+<span class="font-label-code text-[10px] text-error font-bold">₹292 Cr HELD</span>
+</div>
+<div class="grid grid-cols-5 gap-1 text-center font-label-code">
+<div class="bg-surface-container p-1.5 rounded border border-outline-variant/20">
+<div class="text-[9px] text-outline">0-90d</div>
+<div class="text-[12px] font-bold text-on-surface mt-0.5">4,820</div>
+<div class="text-[9px] text-tertiary">30% Norm</div>
+</div>
+<div class="bg-surface-container p-1.5 rounded border border-outline-variant/20">
+<div class="text-[9px] text-outline">91-180d</div>
+<div class="text-[12px] font-bold text-on-surface mt-0.5">3,910</div>
+<div class="text-[9px] text-tertiary">24% Norm</div>
+</div>
+<div class="bg-surface-container p-1.5 rounded border border-outline-variant/20">
+<div class="text-[9px] text-outline">181-365d</div>
+<div class="text-[12px] font-bold text-on-surface-variant mt-0.5">3,240</div>
+<div class="text-[9px] text-secondary">20% Watch</div>
+</div>
+<div class="bg-secondary-container/20 p-1.5 rounded border border-secondary/30">
+<div class="text-[9px] text-secondary font-bold">1-2 YRS</div>
+<div class="text-[12px] font-bold text-secondary mt-0.5">2,410</div>
+<div class="text-[9px] text-secondary">15% High</div>
+</div>
+<div class="bg-error-container/30 p-1.5 rounded border border-error/50">
+<div class="text-[9px] text-error font-bold">2+ YRS</div>
+<div class="text-[12px] font-bold text-error mt-0.5">1,699</div>
+<div class="text-[9px] text-error font-bold">11% CRIT</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-body-dense text-on-surface-variant mt-2 pt-1.5 border-t border-outline-variant/20">
+<span class="text-error flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">lock_clock</span>
+              ₹94.0 Cr public capital frozen &gt;24 months without progress
+            </span>
+<button class="font-label-code text-badge-status text-primary hover:underline">Escalate Batch →</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 5. ROW 4: VENDOR RISK & SCATTER PLOT       -->
+<!-- ========================================== -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-sm p-grid-margin-desktop">
+<!-- Vendor Risk Intelligence (Col 6) -->
+<div class="xl:col-span-6 bg-surface-container border border-outline-variant/40 rounded-DEFAULT flex flex-col overflow-hidden">
+<div class="px-space-md py-space-xs border-b border-outline-variant/30 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">storefront</span>
+<span class="font-headline-panel text-headline-panel text-on-surface">Vendor Risk Intelligence &amp; Cartel Detection</span>
+</div>
+<a class="font-label-code text-badge-status text-primary hover:underline font-bold" href="#">All 340 Vendors →</a>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse text-left font-body-dense text-body-dense">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant font-table-header text-table-header uppercase">
+<th class="py-2 px-3">Vendor Entity</th>
+<th class="py-2 px-2 text-center">Active</th>
+<th class="py-2 px-2 text-right">Disbursed</th>
+<th class="py-2 px-2 text-center">Flagged Works</th>
+<th class="py-2 px-3">Primary Anomaly Flag</th>
+<th class="py-2 px-3 text-right">Risk Score</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3">
+<div class="font-body-dense-bold text-on-surface text-[12px]">Apex Infra Projects Ltd.</div>
+<div class="text-[10px] text-on-surface-variant font-label-code">GST: 27AAACA9921D1Z4</div>
+</td>
+<td class="py-2 px-2 text-center font-label-code text-on-surface">48</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹34.8 Cr</td>
+<td class="py-2 px-2 text-center">
+<span class="font-label-code text-error font-bold">18 (37.5%)</span>
+</td>
+<td class="py-2 px-3 text-on-surface-variant text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-error-container/20 text-error border border-error/30 text-[10px]">
+                  Concentration &amp; Cost Inflation
+                </span>
+</td>
+<td class="py-2 px-3 text-right">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-error-container text-on-error-container border border-error/40 font-bold">
+                  94 CRIT
+                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3">
+<div class="font-body-dense-bold text-on-surface text-[12px]">Sai Krupa Construction Co.</div>
+<div class="text-[10px] text-on-surface-variant font-label-code">GST: 09BBCPR4412K1Z9</div>
+</td>
+<td class="py-2 px-2 text-center font-label-code text-on-surface">32</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹21.2 Cr</td>
+<td class="py-2 px-2 text-center">
+<span class="font-label-code text-error font-bold">12 (37.5%)</span>
+</td>
+<td class="py-2 px-3 text-on-surface-variant text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/30 text-[10px]">
+                  Duplicate GIS Footprint
+                </span>
+</td>
+<td class="py-2 px-3 text-right">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/40 font-bold">
+                  89 HIGH
+                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3">
+<div class="font-body-dense-bold text-on-surface text-[12px]">Bharat Civil &amp; Electric Works</div>
+<div class="text-[10px] text-on-surface-variant font-label-code">GST: 29CCDEB1123M1Z2</div>
+</td>
+<td class="py-2 px-2 text-center font-label-code text-on-surface">54</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹38.6 Cr</td>
+<td class="py-2 px-2 text-center">
+<span class="font-label-code text-secondary font-bold">14 (25.9%)</span>
+</td>
+<td class="py-2 px-3 text-on-surface-variant text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/30 text-[10px]">
+                  Milestone Bypass
+                </span>
+</td>
+<td class="py-2 px-3 text-right">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/40 font-bold">
+                  84 HIGH
+                </span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-high transition-colors">
+<td class="py-2 px-3">
+<div class="font-body-dense-bold text-on-surface text-[12px]">Omkar Rural Enterprises</div>
+<div class="text-[10px] text-on-surface-variant font-label-code">GST: 10DDGHK7781N1Z0</div>
+</td>
+<td class="py-2 px-2 text-center font-label-code text-on-surface">26</td>
+<td class="py-2 px-2 text-right font-label-code text-on-surface font-semibold">₹14.5 Cr</td>
+<td class="py-2 px-2 text-center">
+<span class="font-label-code text-on-surface font-bold">7 (26.9%)</span>
+</td>
+<td class="py-2 px-3 text-on-surface-variant text-[11px]">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface border border-outline-variant/30 text-[10px]">
+                  Frequent Scope Revision
+                </span>
+</td>
+<td class="py-2 px-3 text-right">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-high text-on-surface border border-outline-variant/40 font-bold">
+                  78 MED
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-2 border-t border-outline-variant/30 bg-surface-container-lowest flex items-center justify-between text-[11px] font-label-code text-on-surface-variant">
+<span>Cartel analysis flags entities sharing registered addresses, DIN numbers, or IP origins.</span>
+<button class="text-primary hover:underline font-bold">Investigate Director Graphs →</button>
+</div>
+</div>
+<!-- Cost vs Benchmark Scatter Analysis (Col 6) -->
+<div class="xl:col-span-6 bg-surface-container border border-outline-variant/40 rounded-DEFAULT flex flex-col overflow-hidden">
+<div class="px-space-md py-space-xs border-b border-outline-variant/30 bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[18px] text-primary">scatter_plot</span>
+<span class="font-headline-panel text-headline-panel text-on-surface">Sanctioned Cost vs Category Benchmark</span>
+</div>
+<span class="font-label-code text-badge-status text-error bg-error-container/30 px-1.5 py-0.5 rounded border border-error/40">
+          Z-SCORE &gt; 2.5 OUTLIERS
+        </span>
+</div>
+<div class="p-space-md flex flex-col justify-between flex-1">
+<!-- Synthetic Visual Scatter Canvas -->
+<div class="relative w-full h-[220px] bg-surface-container-lowest rounded border border-outline-variant/30 p-4 flex flex-col justify-between overflow-hidden">
+<!-- Y-Axis Label -->
+<span class="absolute top-2 left-2 font-label-code text-[9px] text-outline uppercase tracking-wider">
+            Expected Cost (State PWD Benchmark ₹ Lakhs) ↑
+          </span>
+<!-- X-Axis Label -->
+<span class="absolute bottom-1 right-2 font-label-code text-[9px] text-outline uppercase tracking-wider">
+            Sanctioned Cost (₹ Lakhs) →
+          </span>
+<!-- Regression Reference Baseline (Linear Expected Fit) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none" preserveaspectratio="none" viewbox="0 0 500 220">
+<!-- Grid Lines -->
+<line stroke="#232D47" stroke-dasharray="3 3" stroke-width="0.5" x1="40" x2="480" y1="20" y2="20"></line>
+<line stroke="#232D47" stroke-dasharray="3 3" stroke-width="0.5" x1="40" x2="480" y1="70" y2="70"></line>
+<line stroke="#232D47" stroke-dasharray="3 3" stroke-width="0.5" x1="40" x2="480" y1="120" y2="120"></line>
+<line stroke="#232D47" stroke-dasharray="3 3" stroke-width="0.5" x1="40" x2="480" y1="170" y2="170"></line>
+<line stroke="#232D47" stroke-dasharray="3 3" stroke-width="0.5" x1="120" x2="120" y1="10" y2="190"></line>
+<line stroke="#232D47" stroke-dasharray="3 3" stroke-width="0.5" x1="240" x2="240" y1="10" y2="190"></line>
+<line stroke="#232D47" stroke-dasharray="3 3" stroke-width="0.5" x1="360" x2="360" y1="10" y2="190"></line>
+<!-- Expected Fit 45-degree Line -->
+<line opacity="0.6" stroke="#3B82F6" stroke-dasharray="4 4" stroke-width="1.5" x1="40" x2="460" y1="180" y2="30"></line>
+<!-- Normal Compliant Cluster Dots (Low Variance) -->
+<circle cx="80" cy="165" fill="#424754" r="3.5"></circle>
+<circle cx="95" cy="160" fill="#424754" r="3"></circle>
+<circle cx="110" cy="150" fill="#424754" r="3"></circle>
+<circle cx="140" cy="140" fill="#424754" r="4"></circle>
+<circle cx="155" cy="135" fill="#424754" r="3"></circle>
+<circle cx="170" cy="130" fill="#424754" r="3.5"></circle>
+<circle cx="190" cy="120" fill="#424754" r="3"></circle>
+<circle cx="210" cy="115" fill="#424754" r="3.5"></circle>
+<circle cx="230" cy="105" fill="#424754" r="4"></circle>
+<circle cx="260" cy="95" fill="#424754" r="3"></circle>
+<circle cx="280" cy="90" fill="#424754" r="3.5"></circle>
+<circle cx="310" cy="80" fill="#424754" r="3"></circle>
+<circle cx="330" cy="70" fill="#424754" r="3"></circle>
+<circle cx="360" cy="62" fill="#424754" r="3.5"></circle>
+<circle cx="410" cy="45" fill="#424754" r="3"></circle>
+<!-- Highlighted Critical Anomaly Outlier 1 (Ahmednagar RO) -->
+<g class="cursor-pointer" onclick="openDossier('WS/MH14/25-26/004812', 'Ahmednagar RO Plant', 96, 'CRITICAL', 'Maharashtra', 'Ahmednagar', 'Rahul Sharma', 'Apex Infra Ltd.', '₹ 48.50 L', '₹ 46.20 L', '35% completion', 'Cost anomaly: Sanctioned ₹48.5L vs Expected ₹17.2L (+182%)')">
+<circle class="animate-ping" cx="190" cy="160" fill="#EF4444" fill-opacity="0.3" r="10"></circle>
+<circle cx="190" cy="160" fill="#EF4444" r="5" stroke="#ffffff" stroke-width="1.5"></circle>
+<line stroke="#EF4444" stroke-dasharray="2 2" stroke-width="1.5" x1="190" x2="190" y1="160" y2="120"></line>
+</g>
+<!-- Highlighted Critical Anomaly Outlier 2 (Lucknow Road) -->
+<g class="cursor-pointer" onclick="openDossier('WS/UP32/24-25/002913', 'Lucknow Concrete Road', 94, 'CRITICAL', 'Uttar Pradesh', 'Lucknow', 'Smt. Aparna Sen', 'Sai Krupa Const.', '₹ 82.00 L', '₹ 79.50 L', '40% completion', 'Cost anomaly: Sanctioned ₹82.0L vs Expected ₹38.0L (+115%)')">
+<circle class="animate-ping" cx="310" cy="150" fill="#EF4444" fill-opacity="0.3" r="9"></circle>
+<circle cx="310" cy="150" fill="#EF4444" r="5" stroke="#ffffff" stroke-width="1.5"></circle>
+<line stroke="#EF4444" stroke-dasharray="2 2" stroke-width="1.5" x1="310" x2="310" y1="150" y2="80"></line>
+</g>
+<!-- Highlighted High Anomaly Outlier 3 (Jodhpur LED) -->
+<g class="cursor-pointer">
+<circle cx="130" cy="168" fill="#F59E0B" r="4.5" stroke="#ffffff" stroke-width="1"></circle>
+<line stroke="#F59E0B" stroke-dasharray="2 2" stroke-width="1.5" x1="130" x2="130" y1="168" y2="145"></line>
+</g>
+</svg>
+<!-- Floating Badges for Visual Outliers -->
+<div class="absolute top-12 left-36 bg-error-container text-on-error-container border border-error/50 px-1.5 py-0.5 rounded font-label-code text-[9px] font-bold pointer-events-none">
+            WS/MH14: +182% Deviation
+          </div>
+<div class="absolute bottom-10 right-32 bg-error-container text-on-error-container border border-error/50 px-1.5 py-0.5 rounded font-label-code text-[9px] font-bold pointer-events-none">
+            WS/UP32: +115% Deviation
+          </div>
+</div>
+<!-- Metric Details Strip -->
+<div class="grid grid-cols-3 gap-2 text-[11px] font-label-code mt-3 pt-2 border-t border-outline-variant/30">
+<div>
+<span class="text-outline">Statistical Method:</span>
+<div class="text-on-surface font-semibold">Tukey IQR + IsolationForest</div>
+</div>
+<div>
+<span class="text-outline">Extreme Deviations (&gt;2.0x):</span>
+<div class="text-error font-bold">148 Works (₹18.9 Cr)</div>
+</div>
+<div class="text-right">
+<span class="text-outline">Expected Cost Baseline:</span>
+<div class="text-primary font-semibold">MoSPI Schedule 2024-25</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ========================================== -->
+<!-- 6. FORENSIC INSPECTION DOSSIER (SLIDE-OVER)-->
+<!-- ========================================== -->
+<div class="fixed top-14 right-0 bottom-8 w-full sm:w-[480px] bg-surface-container border-l border-outline-variant/40 shadow-2xl z-50 flex flex-col transform translate-x-full transition-transform duration-300 ease-in-out" id="dossier-drawer">
+<!-- Drawer Header -->
+<div class="p-space-md bg-surface-container-low border-b border-outline-variant/30 flex items-center justify-between shrink-0">
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-2">
+<span class="font-label-code text-badge-status px-2 py-0.5 rounded bg-error-container text-on-error-container border border-error/40 font-bold" id="dossier-score-badge">
+            96 CRITICAL
+          </span>
+<span class="font-label-code text-badge-status text-on-surface-variant uppercase">Under Investigation</span>
+</div>
+<h2 class="font-headline-panel text-headline-panel text-on-surface font-bold truncate mt-1" id="dossier-title">
+          Community RO Water Purification Center &amp; Tanker Shed
+        </h2>
+<span class="font-label-code text-badge-status text-primary" id="dossier-id">WS/MH14/25-26/004812</span>
+</div>
+<button class="p-1.5 rounded hover:bg-surface-container text-outline hover:text-on-surface transition-colors" onclick="closeDossier()">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Drawer Content (Scrollable) -->
+<div class="flex-1 overflow-y-auto p-space-md space-y-space-md font-body-dense text-body-dense">
+<!-- Administrative Metadata Card -->
+<div class="bg-surface-container-lowest p-space-sm rounded border border-outline-variant/30">
+<div class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider mb-2">Administrative Dossier</div>
+<div class="grid grid-cols-2 gap-2 text-[11px] font-label-code">
+<div>
+<span class="text-outline">State / District:</span>
+<div class="text-on-surface font-semibold" id="dossier-location">Maharashtra, Ahmednagar</div>
+</div>
+<div>
+<span class="text-outline">Recommending MP:</span>
+<div class="text-on-surface font-semibold" id="dossier-mp">Rahul Sharma (LS)</div>
+</div>
+<div>
+<span class="text-outline">Implementing Agency:</span>
+<div class="text-on-surface font-semibold">Zila Parishad Ahmednagar</div>
+</div>
+<div>
+<span class="text-outline">Contracted Vendor:</span>
+<div class="text-secondary font-semibold" id="dossier-vendor">Apex Infra Projects Ltd.</div>
+</div>
+</div>
+</div>
+<!-- Financial Discrepancy Breakdown -->
+<div class="bg-surface-container-lowest p-space-sm rounded border border-outline-variant/30">
+<div class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider mb-2">Financial Execution Discrepancy</div>
+<div class="grid grid-cols-3 gap-2 text-center font-label-code mb-2">
+<div class="p-1.5 rounded bg-surface-container">
+<span class="text-[10px] text-outline">Sanctioned</span>
+<div class="text-[12px] text-on-surface font-bold" id="dossier-sanctioned">₹48.50 L</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container">
+<span class="text-[10px] text-outline">Disbursed (PFMS)</span>
+<div class="text-[12px] text-error font-bold" id="dossier-disbursed">₹46.20 L (95.2%)</div>
+</div>
+<div class="p-1.5 rounded bg-surface-container">
+<span class="text-[10px] text-outline">Physical Stage</span>
+<div class="text-[12px] text-error font-bold" id="dossier-progress">35% Verified</div>
+</div>
+</div>
+<div class="p-2 rounded bg-error-container/20 border border-error/40 text-error font-body-dense text-[11px] flex items-start gap-2">
+<span class="material-symbols-outlined text-[16px] shrink-0 mt-0.5">error</span>
+<span><strong>Premature Tranche Release:</strong> ₹28.50 L disbursed in tranche 3 without requisite GIS stage certificate from designated Executive Engineer.</span>
+</div>
+</div>
+<!-- Forensic Explainability Checklist -->
+<div class="bg-surface-container-lowest p-space-sm rounded border border-outline-variant/30">
+<div class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider mb-2">Forensic Rule Violations</div>
+<ul class="space-y-2 text-[11px]">
+<li class="flex items-start gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-error shrink-0">check_box</span>
+<span><strong>Cost Inflation Outlier:</strong> Sanctioned at 2.8x standard rate card of Maharashtra Rural Water Supply Board (Norm: ₹17.2 L).</span>
+</li>
+<li class="flex items-start gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-error shrink-0">check_box</span>
+<span><strong>GIS Photo Timestamp Inconsistency:</strong> Uploaded inspection photos metadata indicates taken 420 days prior to tender release.</span>
+</li>
+<li class="flex items-start gap-2 text-on-surface">
+<span class="material-symbols-outlined text-[15px] text-secondary shrink-0">check_box</span>
+<span><strong>Vendor Concentration:</strong> Vendor Apex Infra was awarded 8 consecutive contracts in the same taluka within 14 calendar days.</span>
+</li>
+</ul>
+</div>
+<!-- Satellite & Audit Evidence Placeholder -->
+<div class="bg-surface-container-lowest p-space-sm rounded border border-outline-variant/30">
+<div class="font-table-header text-table-header text-on-surface-variant uppercase tracking-wider mb-2">Geo-Tagged Site Imagery</div>
+<div class="grid grid-cols-2 gap-2">
+<img class="w-full h-24 object-cover rounded border border-outline-variant/40" data-alt="Satellite imagery showing barren rural plot in Maharashtra with minimal groundwork and no water filtration structure present despite 95% funding disbursement, dark surveillance aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnpYhU87glNpmJf9d3_Va6h8X0Gj1eVEpNCWxd8WE8gaJPfkJjJE7j0MH327Jhi73fHBJc_BFdZDG7xmaeA54disORrkp2KdQn20r7sZ2R8fFIPBp_mi6PHWGC0n79ObWCLS0Qbr2ues6AvKRmySKHDpwGER-OeZygj4bktlwqi6wA47IeGMipMW7kaQzrcUwEGzCShRbwR8ijOoS6__4uE_ntOszgagDFTRejVndxQiydJbmQYna-7g"/>
+<img class="w-full h-24 object-cover rounded border border-outline-variant/40" data-alt="Ground-level audit photograph of an incomplete concrete foundation with rusting rebars, marked with sovereign CAG forensic evidence watermark overlay" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjTdCH9zQtnpUFfso4XKxpVo62JZiablbwDApR4acR-svG4GhU32dA-NAPhqpchv0gk53RT5TkrtRpxrNByJslJ1faCqPu5icLZQ60hocyMGZmJelvo-xod7pJ3W9TKWqqSH17CF1gQ0swPVDWVHOftCuzq1aJ9WyYpKgNzpJ9Suk-LPd5uqnbuZ3gHSZiO6Ld2FxqNgAGEoky-fA_5pXbxiUe6_BMC3Wc52-yCfBwa0HWwjbmt4I3Gg"/>
+</div>
+</div>
+</div>
+<!-- Drawer Action Footer -->
+<div class="p-space-sm bg-surface-container-low border-t border-outline-variant/30 flex items-center justify-between gap-2 shrink-0">
+<button class="flex-1 bg-error hover:bg-error/90 text-on-error font-body-dense-bold text-[11px] py-1.5 px-2 rounded flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">block</span>
+<span>Freeze PFMS Tranche</span>
+</button>
+<button class="flex-1 bg-surface-container-high hover:bg-surface-bright text-on-surface font-body-dense-bold text-[11px] py-1.5 px-2 rounded border border-outline-variant/40 flex items-center justify-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">send</span>
+<span>Escalate for Inspection</span>
+</button>
+<button class="p-1.5 bg-surface-container-high hover:bg-surface-bright text-primary rounded border border-outline-variant/40 transition-colors" title="Download Full PDF Dossier">
+<span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+</button>
+</div>
+</div>
+<!-- Dossier Drawer Backdrop Scrim -->
+<div class="fixed inset-0 bg-surface-container-lowest/70 backdrop-blur-sm z-40 hidden transition-opacity" id="dossier-scrim" onclick="closeDossier()"></div>
+<!-- ========================================== -->
+<!-- CLIENT-SIDE INTERACTIVITY SCRIPT           -->
+<!-- ========================================== -->
+<script>
+    function openDossier(id, title, score, severity, state, district, mp, vendor, sanctioned, disbursed, progress, anomaly) {
+      const drawer = document.getElementById('dossier-drawer');
+      const scrim = document.getElementById('dossier-scrim');
+      
+      document.getElementById('dossier-id').innerText = id;
+      document.getElementById('dossier-title').innerText = title;
+      document.getElementById('dossier-location').innerText = state + ', ' + district;
+      document.getElementById('dossier-mp').innerText = mp + ' (LS)';
+      document.getElementById('dossier-vendor').innerText = vendor;
+      document.getElementById('dossier-sanctioned').innerText = sanctioned;
+      document.getElementById('dossier-disbursed').innerText = disbursed;
+      document.getElementById('dossier-progress').innerText = progress;
+
+      const badge = document.getElementById('dossier-score-badge');
+      badge.innerText = score + ' ' + severity;
+      if (severity === 'CRITICAL') {
+        badge.className = 'font-label-code text-badge-status px-2 py-0.5 rounded bg-error-container text-on-error-container border border-error/40 font-bold';
+      } else {
+        badge.className = 'font-label-code text-badge-status px-2 py-0.5 rounded bg-surface-container-highest text-secondary border border-secondary/40 font-bold';
+      }
+
+      drawer.classList.remove('translate-x-full');
+      scrim.classList.remove('hidden');
+    }
+
+    function closeDossier() {
+      const drawer = document.getElementById('dossier-drawer');
+      const scrim = document.getElementById('dossier-scrim');
+      drawer.classList.add('translate-x-full');
+      scrim.classList.add('hidden');
+    }
+  </script>
+</div></main><footer class="fixed bottom-0 left-[260px] right-0 h-8 bg-surface-container-lowest border-t border-outline-variant/30 z-30 flex items-center justify-between px-grid-margin-desktop font-label-code text-badge-status text-on-surface-variant"><div class="flex items-center gap-space-sm truncate"><span class="text-primary font-bold">TELEMETRY</span><span class="text-outline-variant">|</span><span class="truncate">Coverage: 25 States • 740+ Constituencies • 84,219 Works</span><span class="text-outline-variant">|</span><span class="text-tertiary truncate">Engine: Anomaly Engine v2.4 (Rules + XGBoost + IsolationForest)</span></div><div class="flex items-center gap-space-sm shrink-0 pl-space-md"><span class="text-on-surface">Confidence Threshold: <span class="text-primary font-bold">94.2%</span></span><span class="text-outline-variant">|</span><span class="text-secondary">RESTRICTED STATUTORY ACCESS ONLY</span></div></footer></div></body></html>
