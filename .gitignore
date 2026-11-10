@@ -7,3 +7,4 @@ node_modules
 Web_Dev/backend/.env
 __pycache__/
 *.pyc
+dist/

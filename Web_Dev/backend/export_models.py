@@ -11,8 +11,12 @@ import warnings
 
 warnings.filterwarnings('ignore')
 
-DATA_PATH = r"c:\Users\Manav Motiramani\Desktop\SIH_MPLADS\ML training\MPLADS_ML_Features.csv"
-OUT_DIR = "saved_models"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.join(BASE_DIR, "data", "MPLADS_ML_Features.csv")
+if not os.path.exists(DATA_PATH):
+    DATA_PATH = os.path.join(BASE_DIR, "..", "..", "ML training", "MPLADS_ML_Features.csv")
+
+OUT_DIR = os.path.join(BASE_DIR, "saved_models")
 if not os.path.exists(OUT_DIR):
     os.makedirs(OUT_DIR)
 

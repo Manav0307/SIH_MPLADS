@@ -170,9 +170,12 @@ const PriorityQueue = () => {
       </div>
 
       {loading ? (
-        <div className="text-[#00C9A7] py-10 text-center flex items-center justify-center gap-3">
-          <div className="w-5 h-5 border-2 border-[#00C9A7] border-t-transparent rounded-full animate-spin"></div>
-          Scanning Telemetry...
+        <div className="text-[#00C9A7] py-10 text-center flex flex-col items-center justify-center gap-2">
+          <div className="flex items-center gap-3">
+            <div className="w-5 h-5 border-2 border-[#00C9A7] border-t-transparent rounded-full animate-spin"></div>
+            <span>Scanning Telemetry...</span>
+          </div>
+          <span className="text-xs text-gray-500">Note: Free-tier servers (Render) may take up to 60s to wake up on first visit.</span>
         </div>
       ) : projects.length === 0 ? (
         <div className="text-gray-500 py-10 text-center border-2 border-dashed border-[#1E1E1E] rounded-xl">

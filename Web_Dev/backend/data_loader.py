@@ -23,6 +23,36 @@ ML_FEATURES_COLS = [
 CLEAN_CSV_COLS = ['Work_Id', 'State', 'Constituency', 'Work description']
 
 
+def _load_clean_csv_chunked(filepath, work_ids_set):
+    """Load MPLADS_Clean.csv in small chunks to avoid peak memory spike."""
+    chunks = []
+    try:
+        for chunk in pd.read_csv(
+            filepath,
+            usecols=CLEAN_CSV_COLS,
+            on_bad_lines='skip',
+            chunksize=10000,
+            dtype={'Work description': 'str', 'State': 'str', 'Constituency': 'str'}
+        ):
+            chunk['Work_Id'] = chunk['Work_Id'].fillna(0).astype(int).astype(str)
+            # Only keep rows that match our merged Work_Ids
+            chunk = chunk[chunk['Work_Id'].isin(work_ids_set)]
+            if not chunk.empty:
+                chunks.append(chunk)
+            del chunk
+        gc.collect()
+    except Exception as e:
+        print(f"Error during chunked CSV read: {e}")
+        return None
+
+    if chunks:
+        result = pd.concat(chunks, ignore_index=True)
+        del chunks
+        gc.collect()
+        return result.drop_duplicates(subset=['Work_Id'])
+    return None
+
+
 class DataLoader:
     def __init__(self, ml_engine):
         print("Loading in-memory dataset...")
@@ -47,7 +77,7 @@ class DataLoader:
             iso_scaled = ml_df['Anomaly_Feature_Count'].fillna(0) / max(1, ml_df['Anomaly_Feature_Count'].max())
 
             if 'Is_Stalled' in ml_df.columns:
-                stall_prob = ml_df['Is_Stalled'] * 0.85 + np.random.uniform(0, 0.15, len(ml_df)).astype(np.float32)
+                stall_prob = (ml_df['Is_Stalled'] * 0.85 + np.random.uniform(0, 0.15, len(ml_df))).astype(np.float32)
             else:
                 stall_prob = np.zeros(len(ml_df), dtype=np.float32)
 
@@ -73,6 +103,8 @@ class DataLoader:
             ml_df['stall_probability'] = stall_prob.astype(np.float32)
 
             self.merged = ml_df
+            del ml_df
+            gc.collect()
 
             # Map actual dataset fields into frontend properties
             self.merged['sanctioned_amount'] = self.merged.get('Sanction Amount ( ₹ )', pd.Series([0]*len(self.merged), dtype='int32')).fillna(0).astype('int32')
@@ -96,7 +128,6 @@ class DataLoader:
 
             self.merged['vendor'] = np.random.choice(["Surya Electricals", "District Planning Office", "L&T Infrastructure", "Local Panchayat", "Apex Builders", "Global Constructions"], len(self.merged))
             self.merged['status_text'] = "In Progress"  # default
-            # Use a simpler approach to mark stalled items
             if 'stall_probability' in self.merged.columns:
                 self.merged.loc[self.merged['stall_probability'] > 0.5, 'status_text'] = "Stalled / Delayed"
 
@@ -105,29 +136,31 @@ class DataLoader:
 
             self.merged['Work_Id'] = self.merged['Work_Id'].fillna(0).astype(int).astype(str)
 
-            # Map REAL textual metadata from raw dataset
+            # Map REAL textual metadata — loaded in CHUNKS to control peak memory
             try:
-                clean_df = pd.read_csv(os.path.join(data_dir, "MPLADS_Clean.csv"), usecols=CLEAN_CSV_COLS, on_bad_lines='skip')
-                clean_df['Work_Id'] = clean_df['Work_Id'].fillna(0).astype(int).astype(str)
-                clean_df = clean_df.drop_duplicates(subset=['Work_Id'])
-                self.merged = pd.merge(self.merged, clean_df, on='Work_Id', how='left')
-                del clean_df
-                gc.collect()
+                work_ids_set = set(self.merged['Work_Id'].values)
+                clean_df = _load_clean_csv_chunked(os.path.join(data_dir, "MPLADS_Clean.csv"), work_ids_set)
 
-                # Assign with fallback for any unmapped anomalous rows
-                self.merged['state'] = self.merged['State'].fillna("Delhi")
-                self.merged['constituency'] = self.merged['Constituency'].fillna("Central")
-                self.merged['description'] = self.merged['Work description'].fillna("Implementation and developmental works under MPLADS Scheme")
+                if clean_df is not None:
+                    self.merged = pd.merge(self.merged, clean_df, on='Work_Id', how='left')
+                    del clean_df
+                    gc.collect()
 
-                # Drop redundant columns after mapping
-                self.merged.drop(columns=['State', 'Constituency', 'Work description'], inplace=True, errors='ignore')
+                    self.merged['state'] = self.merged['State'].fillna("Delhi")
+                    self.merged['constituency'] = self.merged['Constituency'].fillna("Central")
+                    self.merged['description'] = self.merged['Work description'].fillna("Implementation and developmental works under MPLADS Scheme")
+                    self.merged.drop(columns=['State', 'Constituency', 'Work description'], inplace=True, errors='ignore')
+                else:
+                    raise Exception("Chunked load returned None")
             except Exception as e:
                 print(f"Could not load authentic states: {e}")
                 self.merged['state'] = np.random.choice(["Maharashtra", "Gujarat", "Karnataka", "Delhi", "Tamil Nadu", "Uttar Pradesh"], len(self.merged))
                 self.merged['constituency'] = np.random.choice(["Central", "North", "South", "East"], len(self.merged))
                 self.merged['description'] = "Implementation and developmental works under MPLADS Scheme"
 
-            # Now load the actual REAL Flagged_Anomalies!
+            gc.collect()
+
+            # Now load the actual REAL Flagged_Anomalies (small file, ~2MB)
             try:
                 flagged_df = pd.read_csv(os.path.join(data_dir, "Flagged_Anomalies.csv"), usecols=['Work_Id', 'Anomaly_Score_Ensemble'])
                 flagged_df['Work_Id'] = flagged_df['Work_Id'].fillna(0).astype(int).astype(str)
@@ -135,7 +168,6 @@ class DataLoader:
                 del flagged_df
                 gc.collect()
                 self.merged['Anomaly_Score_Ensemble'] = self.merged['Anomaly_Score_Ensemble'].fillna(0).astype(np.float32)
-                # Overwrite the fake risk score with the real ensemble score!
                 self.merged['risk_score'] = self.merged['Anomaly_Score_Ensemble']
             except Exception as e:
                 print(f"Could not load Flagged Anomalies: {e}")

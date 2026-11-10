@@ -3,7 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from ml_engine import MLEngine
 from data_loader import DataLoader
 from models import DashboardStats, PaginatedResponse, ProjectDetail
-import uvicorn
+from typing import Optional
+import os
 
 app = FastAPI(title="MPLADS Guard API")
 
@@ -21,8 +22,6 @@ data_loader = DataLoader(ml_engine)
 @app.get("/api/stats", response_model=DashboardStats)
 def get_stats():
     return data_loader.get_stats()
-
-from typing import Optional
 
 @app.get("/api/projects", response_model=PaginatedResponse)
 def get_projects(page: int = 1, limit: int = 20, sort_by: str = "risk_score", 
@@ -48,32 +47,41 @@ def search_projects(q: str):
 def predict_new(project_data: dict):
     return ml_engine.predict(project_data)
 
-from langchain_groq import ChatGroq
-from langchain_core.prompts import ChatPromptTemplate
-from dotenv import load_dotenv
-import os
+# Lazy-load LLM — langchain is NOT imported at startup to save ~100MB RAM
+_llm = None
+_prompt_template = None
 
-load_dotenv()
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+def _get_llm():
+    global _llm, _prompt_template
+    if _llm is None:
+        from langchain_groq import ChatGroq
+        from langchain_core.prompts import ChatPromptTemplate
+        from dotenv import load_dotenv
 
-llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name="allam-2-7b")
+        load_dotenv()
+        GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+        GROQ_MODEL = os.getenv("GROQ_MODEL", "allam-2-7b")
 
-prompt_template = ChatPromptTemplate.from_messages([
-    ("system", "You are an expert fraud and compliance auditing AI named MPLADSGuard. Provide a highly concise, professional 3-4 sentence Forensic Intelligence Summary. Focus strictly on any financial irregularities, delays, or AI anomaly indicators. Write it in a highly professional, Palantir-style authoritative tone. Do not use markdown formatting."),
-    ("user", """
-    Project Analysis Data:
-    - Target Geography: {state} ({constituency})
-    - Sanctioned Funds: ₹{sanctioned_amount}
-    - Disbursed Funds: ₹{amount_disbursed}
-    - Implementation Status: {status_text}
-    - Risk Category Flag: {risk_category}
-    - Ensemble Threat Score: {anomaly_score}
-    """)
-])
+        _llm = ChatGroq(groq_api_key=GROQ_API_KEY, model_name=GROQ_MODEL)
+
+        _prompt_template = ChatPromptTemplate.from_messages([
+            ("system", "You are an expert fraud and compliance auditing AI named MPLADSGuard. Provide a highly concise, professional 3-4 sentence Forensic Intelligence Summary. Focus strictly on any financial irregularities, delays, or AI anomaly indicators. Write it in a highly professional, Palantir-style authoritative tone. Do not use markdown formatting."),
+            ("user", """
+            Project Analysis Data:
+            - Target Geography: {state} ({constituency})
+            - Sanctioned Funds: ₹{sanctioned_amount}
+            - Disbursed Funds: ₹{amount_disbursed}
+            - Implementation Status: {status_text}
+            - Risk Category Flag: {risk_category}
+            - Ensemble Threat Score: {anomaly_score}
+            """)
+        ])
+    return _llm, _prompt_template
 
 @app.post("/api/projects/summary")
 def generate_summary(project_data: dict):
     try:
+        llm, prompt_template = _get_llm()
         chain = prompt_template | llm
         
         response = chain.invoke({
@@ -91,4 +99,6 @@ def generate_summary(project_data: dict):
         return {"summary": f"Intelligence uplink failed. Fallback error details: {str(e)}"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
