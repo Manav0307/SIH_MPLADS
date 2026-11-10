@@ -55,9 +55,23 @@ def _load_clean_csv_chunked(filepath, work_ids_set):
 
 class DataLoader:
     def __init__(self, ml_engine):
-        print("Loading in-memory dataset...")
         base_dir = os.path.dirname(os.path.abspath(__file__))
         data_dir = os.path.join(base_dir, "data")
+
+        # Fast path: Load preprocessed compact dataset (3MB disk, ~18MB RAM, 0.06s load time)
+        # Avoids Render Free Tier 512MB OOM crash caused by parsing raw 116MB CSVs in memory
+        preprocessed_file = os.path.join(data_dir, "preprocessed_projects.pkl")
+        if os.path.exists(preprocessed_file):
+            print("Loading preprocessed dataset (instant low-memory mode)...")
+            try:
+                self.merged = pd.read_pickle(preprocessed_file, compression='zip')
+                print(f"Successfully loaded {len(self.merged)} projects into memory.")
+                print(f"Memory usage: {self.merged.memory_usage(deep=True).sum() / 1024 / 1024:.1f} MB")
+                return
+            except Exception as e:
+                print(f"Failed to load preprocessed pickle: {e}. Falling back to CSVs.")
+
+        print("Loading in-memory dataset from CSVs...")
         try:
             # Load ONLY the columns we need — massive memory saving
             ml_df = pd.read_csv(
